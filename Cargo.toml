@@ -1,0 +1,50 @@
+[package]
+name = "mcp-fine-tune-exporter"
+version = "0.1.0"
+edition = "2021"
+description = "Export high-quality MQO interactions from the trace store as LLM fine-tuning JSONL"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/joeyen-atscale/mcp-fine-tune-exporter"
+
+[[bin]]
+name = "mcp-fine-tune-exporter"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+rand = "0.8"
+anyhow = "1"
+mcp-trace-store = { path = "../mcp-trace-store" }
+
+[dev-dependencies]
+tempfile = "3"
+
+[[test]]
+name = "ac1_filter"
+path = "tests/ac1_filter.rs"
+
+[[test]]
+name = "ac2_threshold"
+path = "tests/ac2_threshold.rs"
+
+[[test]]
+name = "ac3_first_attempt"
+path = "tests/ac3_first_attempt.rs"
+
+[[test]]
+name = "ac4_missing_question"
+path = "tests/ac4_missing_question.rs"
+
+[[test]]
+name = "ac5_format"
+path = "tests/ac5_format.rs"
+
+[[test]]
+name = "ac6_max"
+path = "tests/ac6_max.rs"
+
+[[test]]
+name = "ac7_shuffle"
+path = "tests/ac7_shuffle.rs"
